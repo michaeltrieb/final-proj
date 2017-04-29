@@ -4,123 +4,40 @@
   <meta charset="utf-8"/>
   <meta name=viewport content="width=device-width, initial-scale=1">
 
-  <script src="https://code.jquery.com/jquery-2.2.3.js"></script>  
-
-  <!--
-  TODO (DONE)
-  add bootstrap js script
-  -->
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script> <!--JQuery-->
   <link rel="stylesheet" href="css/styles.css"/>
 
-  <title>FlickList</title>
+  <title>Weather Song</title>
+
 </head>
 <body>
 
 
-  <header class="jumbotron">
-    <h1>FlickList</h1>
-    <p class="text-muted">Keep a list of all the movies you've been meaning to watch.</p>
+  <header class="header ">
+    <h1>Weather Song</h1>
+    <!-- <p id="headerText">Here's some music for your (BLANK) day</p>--> <!--Replace BLANK with current weather--> 
+
+
+    <iframe id="weatherSong" width="854" height="480" style="display:none;" src="" frameborder="0" allowfullscreen></iframe>
+
+
   </header>
 
 
   <div class="main-content">
 
-    <section id="section-watchlist">
-      <header>
-        <h2>My Watchlist</h2>
-        <hr/>
-      </header>
-
-      <ul class="list-inline"></ul>
+    <section>
+        <form id="userZipCode">
+              Zip Code: <input id="zip" value="63118"></input>
+              <br/>
+              <button type="submit" id="button">submit</button>
+        </form>
     </section>
 
-    <section id="section-browse" class="container-fluid">
-      <div class="row">
-
-        <div class="col-sm-8">
-          <div class="well">
-          <div class="row">
-            <div class="col-xs-7" id="browse-info">
-              <h4>Twilight</h4>
-              <hr/>
-              <p>The vampires fall in love.</p>
-            </div>
-            <div class="col-xs-5">
-              <div class="carousel slide" id="browse-carousel" data-ride="carousel">
-                <ul class="carousel-inner" role="listbox">
-                  <li class="item active">
-                    <img src="https://pbs.twimg.com/profile_images/378800000576832113/3e69602eab961fd19b89cc65ea9bd2e8.jpeg"/>
-                  </li>
-                  <li class="item">
-                    <img src="https://pbs.twimg.com/profile_images/378800000576832113/3e69602eab961fd19b89cc65ea9bd2e8.jpeg"/>
-                  </li>
-                  <li class="item">
-                    <img src="https://pbs.twimg.com/profile_images/378800000576832113/3e69602eab961fd19b89cc65ea9bd2e8.jpeg"/>
-                  </li>
-                </ul>
-                <a class="left carousel-control" href="#browse-carousel" role="button" data-slide="prev">
-                  <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
-                <a class="right carousel-control" href="#browse-carousel" role="button" data-slide="next">
-                  <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
-              </div>
-              <button id="add-to-watchlist">
-                Add to Watchlist
-              </button>
-            </div> 
-          </div>
-        </div>
-        </div>
-
-        <div class="col-sm-4">
-          <header>
-            <h2>Browse Movies</h2>
-          </header>
-          <form id="form-search">
-            <div class="input-group">
-              <input type="text" class="form-control" name="query"/>
-              <span class="input-group-btn">
-                <input type="submit" class="btn btn-primary" value="Search By Topic"/>
-              </span>
-            </div>
-          </form>
-        </div>
-
-        <!-- 
-        TODO (DONE)
-        implement a carousel inside this section
-        You can incorporate this <ul> as the .carousel-inner 
-        -->
-      </div>
-
-    </section>
 
   </div>
 
-  <script src="js/flicklist.js"></script>
-  <script>
-    $("#form-search").submit(function(evt) {
-      evt.preventDefault();
-      var query = $("#form-search input[name=query]").val();
-      searchMovies(query, render);
-    });
+  <script src="js/finalproj.js"></script>
 
-    $("#browse-carousel").on("slid.bs.carousel", function() {
-      console.log("the carousel just slid!");
-      var newIndex = $("#browse-carousel").find(".active").index();
-      // TODO 
-      // update the model and then re-render
-      model.activeMovieIndex = newIndex;
-      render();
-    });
-  </script>
-
-</body> 
+</body>
 </html>
